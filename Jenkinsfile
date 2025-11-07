@@ -14,5 +14,12 @@ pipeline {
         sh 'mvn clean install'
       }
     }
+    
+    stage('Docker Build') {
+      agent any
+      steps {
+        sh 'docker build -t juls95a/spring-petclinic:latest .'
+      }
+    }
   }
 }
